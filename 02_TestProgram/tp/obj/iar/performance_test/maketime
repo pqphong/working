@@ -1,0 +1,70 @@
+############################################################################### 
+# File Name  : maketime
+# Description: Public makefile 
+#------------------------------------------------------------------------------
+# REVISION HISTORY
+#------------------------------------------------------------------------------
+# 
+###############################################################################
+TOPDIR		= ../../../..
+TPDIR		= $(TOPDIR)/tp
+CONFDIR 	= $(TPDIR)/obj/ghs/conf
+IF_DIR 		= $(TOPDIR)/if
+
+TOOLS		= C:/ghs/comp_202414
+
+################################################################################
+# GHS Compiler command and options
+################################################################################
+CCARM  = "$(TOOLS)/ccarm.exe"
+ASARM  = "$(TOOLS)/ccarm.exe"
+ELXR   = "$(TOOLS)/ccarm.exe"
+
+# Assembler options and flags
+AFLAGS = -Ogeneral -g -cpu=cortexm33 -fpu=vfpv5_d16 -gsize -passsource -Wundef --short_enum --prototype_errors --diag_error 193 -dual_debug --no_commons -Wshadow -delete -MMD -entry=Reset_Handler 
+
+# C options and flags
+CFLAGS = -thumb -Ogeneral -g -cpu=cortexm33 -fpu=vfpv5_d16 -gsize -passsource -Wundef --short_enum --prototype_errors --diag_error 193 -dual_debug --no_commons -Wshadow -delete -MMD -entry=Reset_Handler 
+
+# Linker options and flags
+SCATTER = $(TPDIR)/obj/ghs/conf/tp.ld
+
+LFLAGS = -Ogeneral -g -cpu=cortexm33 -gsize -passsource -Wundef --short_enum --prototype_errors --diag_error 193 -dual_debug --no_commons -Wshadow -delete -entry=Reset_Handler
+
+TPSRC	= ../../../src/performance_test/src
+TPINC	= ../../../src/performance_test/inc
+
+VPATH = $(TPSRC) $(TPINC)
+
+BOOTSRC = $(TPDIR)/src/conf_ghs/startup.c
+BOOTOBJ = $(CONFDIR)/startup.o
+
+ALLOBJS	= all.out
+
+
+all:	$(ALLOBJS)
+	@echo "Finished building executable for performance test."
+
+clean:	cleanall
+
+cleanall:
+	$(RM) $(ALLOBJS)
+	$(RM) *.out *.o *.map *.sym *.dbg *.dbo *.dla *.dnm *.rc *.d *.siz
+
+cleanobj:
+	$(RM) $(ALLOBJS)
+
+
+include	 $(IF_DIR)/ghs/make/CST_IF.mak
+################################################################################
+# Build Application
+################################################################################
+# performance TP
+$(ALLOBJS):$(TPSRC)/$(@F:.out=.c) $(BOOTOBJ) $(if_objs)
+	$(CCARM) $(CFLAGS) -I $(TPINC) -I $(IF_INCLUDE_PATH) -I $(IF_CONF_DIR) -DCST_LIBRARY -c $(TPSRC)/$(@F:.out=.c)
+	$(CCARM) $(SCATTER) $(LFLAGS) -o $@ $(BOOTOBJ) $(@F:.out=.o) $(IF_ASM_OBJS) $(IF_C_OBJS)
+	
+
+# startup
+$(BOOTOBJ): $(BOOTSRC)
+	$(CCARM) $(CFLAGS) -I $(TPINC) -I $(IF_INCLUDE_PATH) -I $(IF_CONF_DIR) -c $(BOOTSRC) -o $(BOOTOBJ)

@@ -1,0 +1,78 @@
+/* dld options */
+-Xgenerate-copytables
+
+MEMORY
+ {
+  iROM_0     : org = 0x00000000,  len = 2000K /* Code Flash 0 (1000k) */
+  iROM_1     : org = 0x00400000,  len = 2000K /* Code Flash 1 (2000k) */
+  iRAM_0     : org = 0x204E0000,  len = 120K  /* CPU RAM 0 (120k) */
+  mSTACK     : org = 0x204FE000,  len = 4K    /* Main Stack (4k) */
+  pSTACK     : org = 0x204FF000,  len = 4K    /* Process Stack (4k) */
+  gRAM_0     : org = 0x28000000,  len = 384K  /* Global RAM 0 (384k) */
+  iRAM_R     : org = 0x2C000000,  len = 32K   /* Retention RAM (32k) */
+ }
+
+  __INITIAL_SP            = ADDR(mSTACK)+SIZEOF(mSTACK);
+  __mSTACK_LIMIT           = ADDR(mSTACK);
+
+  __INITIAL_PSP            = ADDR(pSTACK)+SIZEOF(pSTACK);
+  __pSTACK_LIMIT           = ADDR(pSTACK);
+  
+  ___windriver_ram0start        = ADDR(iRAM_0);
+  ___windriver_ram0end          = ADDR(iRAM_0);
+  
+  ___windriver_rramstart        = ADDR(iRAM_R);
+  ___windriver_rramend          = ADDR(iRAM_R);
+
+SECTIONS
+{		
+	GROUP : {
+		/* Take all code from all objects and libraries.	    */
+
+		.text (TEXT)	: {
+			*(.intvec)
+			*(.text, ".text.*")
+			*(.init)
+			*(.fini)
+		}
+		.rodata (TEXT) : {
+			*(.rodata, ".rodata.*")
+		}
+		.ARM.extab (TEXT) : { *(".ARM.extab*" ".gnu.linkonce.armextab.*") }
+        __exidx_start = .;
+        .ARM.exidx (TEXT) : { *(".ARM.exidx*" ".gnu.linkonce.armexidx.*") }
+        __exidx_end = .;
+		.init	(=TEXT) ALIGN(4) : {*(.init) *(.fini)}
+        .ctors (=TEXT) ALIGN(4) : { ctordtor.o(.ctors) *(.ctors) }
+        .init_array (=TEXT) ALIGN(4) : { ctordtor.o(.init_array) *(.init_array) }
+        .dtors (=TEXT) ALIGN(4) : { ctordtor.o(.dtors) *(.dtors) }
+        .fini_array (=TEXT) ALIGN(4) : { ctordtor.o(.fini_array) *(.fini_array) }
+
+		.copytable : {} /* the copytable */
+	} > iROM_0
+
+	/* The second GROUP allocates space for the initialized data and
+	 * uninitialized data in the "ram" section.
+	 */
+
+	GROUP LOAD(>iROM_0) COPYTABLE : {
+		__DATA_ROM	= .;
+		__DATA_RAM	= .;
+		.data (DATA) 	: { *(.data, ".data.*") *(.data.rel) }
+		.got (DATA)     : {}
+
+		.sdata (DATA)	: { *(.sdata, ".sdata.*") }
+		__DATA_END	= .;
+
+		/* Allocate uninitialized sections.			    */
+
+		__BSS_START	= .;
+		.sbss (BSS) 	: { *(.sbss, ".sbss.*") }
+		.bss (BSS) 	: { *(.bss, ".bss.*") }
+		__BSS_END	= .;
+
+		/* Any remaining space will be used as a heap.		    */
+
+		__HEAP_START	= .;
+	} > gRAM_0
+}

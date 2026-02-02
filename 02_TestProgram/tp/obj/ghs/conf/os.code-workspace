@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../../../rv850/test/os"
+		},
+		{
+			"path": "../../../../../../../../rv850/develop/os"
+		},
+		{
+			"path": "../../../../../../../../rl78_f2x_cst/RL78F22F25/20_Src/trunk/RL78F22F25"
+		},
+		{
+			"path": "../../../../../../../05_CD/01_WorkProducts/01_SourceCode"
+		},
+		{
+			"path": "../../../../../../../../U2BCST/02_IT/tags/U2BCST_IT_MS4"
+		},
+		{
+			"path": "../../../../../../../../U2BCST/01_UT/tags/U2BCST_UT_MS3_3"
+		},
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../../../../rl78_f2x_cst/RL78F22F25/30_Test/07_IT/01_IAR"
+		},
+		{
+			"path": "../../../../../../../../avc/05_CD/01_WorkProducts/01_SourceCode"
+		},
+		{
+			"path": "../../../../../../../../20250807_M0b/Code/stl/rcar_u5l4/STL"
+		}
+	],
+	"settings": {}
+}

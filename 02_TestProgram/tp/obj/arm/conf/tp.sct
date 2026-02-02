@@ -1,0 +1,24 @@
+#! armclang -E --target=arm-arm-none-eabi -mcpu=cortex-m33 -xc
+
+; Scatter Region definition
+
+LOAD_CODE 0x00000000 0x00080000  {
+  ER_ROM 0x00000000 0x00080000  {
+   *.o (.intvec, +First)
+   *(InRoot$$Sections)
+   .ANY (+RO)
+   .ANY (+XO)
+  }
+
+  RW_RAM 0x204E0000 0x0001E000 {
+    *(+RW +ZI)
+    ; *(.bss.noinit)
+  }
+
+  ARM_LIB_HEAP  0x204FE000 EMPTY  0x00001000  {
+     ; Reserve empty region for heap 
+  }
+  ARM_LIB_STACK 0x204FF000 EMPTY  0x00001000  {
+    ; Reserve empty region for stack 
+  }
+}

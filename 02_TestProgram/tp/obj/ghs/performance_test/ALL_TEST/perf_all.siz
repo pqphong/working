@@ -1,0 +1,7 @@
+perf_all.out     .init               1984
+perf_all.out     .text               6774
+perf_all.out     .secinfo              72
+perf_all.out     .s_m33             45884
+perf_all.out     .rodata             8324
+perf_all.out     .ROM.data              1
+perf_all.out     .syscall               4

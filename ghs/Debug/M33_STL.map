@@ -1,0 +1,414 @@
+Host OS:	Windows
+ELXR: Copyright (C) 1983-2024 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2024.1.4
+Build Directory: [Directory] chup:/export/comp_autobuild/v2024.1_co_2024-07-18/win64-cross-linux86-comp
+Revision: [VCInfo] http://toolsvc/branches/release-branch-2024-1-comp/src@759444 (built by auto-compiler)
+Revision Date: Fri Jul 19 02:46:06 2024
+
+Release Date: Fri Jul 19 02:00:00 2024
+
+
+
+
+Load Map Mon Feb 02 11:01:04 2026
+Image Summary
+
+  Section              Base      Size(hex)    Size(dec)  SecOffs
+  .start.CFLASH_USER_AREA0 00000000  00000000            0   0000000
+  .isr_vector          00000000  00000358          856   0000400
+  .text                00000400  00000ce0         3296   0000800
+  .fixaddr             000010e0  00000000            0   0000000
+  .fixtype             000010e0  00000000            0   0000000
+  .secinfo             000010e0  00000048           72   00014e0
+  .s_m33               00001128  0000d780        55168   0001528
+  .rodata              0000e8a8  00001cac         7340   000eca8
+  .ROM.data            00010554  00000001            1   0010954
+  .ROM.tls.cond.data   00010555  00000000            0   0000000
+  .ROM.sdata           00010558  00000000            0   0000000
+  .end.CFLASH_USER_AREA0 00400000  00000000            0   0000000
+  .start.CPU_RAM_CPU0  204e0000  00000000            0   0000000
+  .d_m33_stl_data_struct 204e0000  0000000c           12   0000000
+  .data                204e000c  00000001            1   0010954
+  .tls.cond.data       204e000d  00000000            0   0000000
+  .bss                 204e0010  00000014           20   0000000
+  .tls.cond.bss        204e0024  00000000            0   0000000
+  .sda_start           204e0024  00000000            0   0000000
+  .sda_base            204e0024  00000000            0   0000000
+  .sdata               204e0024  00000000            0   0000000
+  .sbss                204e0024  00000000            0   0000000
+  .sda_end             204e0024  00000000            0   0000000
+  .syscall             204e0024  00000000            0   0000000
+  .stack               204e0024  00000400         1024   0000000
+  .end.CPU_RAM_CPU0    20500000  00000000            0   0000000
+  CSA_OFFSET_0x200     40121200  00000000            0   0000000
+  CSA_OFFSET_0x300     40121300  00000000            0   0000000
+
+Load Map Mon Feb 02 11:01:04 2026
+Module Summary
+
+  Origin+Size    Section          Module
+0000e8a8+00002c  .rodata          crt0m.o
+00000400+000098  .text            main0.o
+204e0000+00000c  .d_m33_stl_data_struct main0.o
+00000498+000808  .text            M33_STL.o
+204e0010+000004  .bss             M33_STL.o
+0000e8d4+001c80  .rodata          m33_stl_datavect_Data.o
+00001128+00009c  .s_m33_stl_mpuRegisterInfo -> .s_m33 m33_stl_registerInfo.o
+000011c4+0008b8  .s_m33_stl_nvicRegisterInfo -> .s_m33 m33_stl_registerInfo.o
+00000ca0+0000d0  .text            m33_stl_exceptions.o
+204e0014+000002  .bss             m33_stl_exceptions.o
+00001000+00007c  .text            boot.o
+0000107c+000060  .text            cstart0.o
+000010dc+000004  .text            vecttble0.o
+00001a7c+000008  .s_m33_stl_gpr_context_save -> .s_m33 m33_stl_in_context_switch.o
+00001a84+000010  .s_m33_stl_full_context_save -> .s_m33 m33_stl_in_context_switch.o
+00001a94+00003e  .s_m33_stl_gpr_init -> .s_m33 m33_stl_in_context_switch.o
+00001ad4+00009c  .s_m33_stl_fpu_init -> .s_m33 m33_stl_in_context_switch.o
+00001b70+000010  .s_m33_stl_full_init -> .s_m33 m33_stl_in_context_switch.o
+00001b80+00000e  .s_m33_stl_err_test -> .s_m33 m33_stl_out_context_switch.o
+00001b8e+000008  .s_m33_stl_pass_test -> .s_m33 m33_stl_out_context_switch.o
+00001b96+000006  .s_m33_stl_gpr_context_restore -> .s_m33 m33_stl_out_context_switch.o
+00001b9c+000010  .s_m33_stl_full_context_restore -> .s_m33 m33_stl_out_context_switch.o
+00001bac+000010  .s_m33_stl_compare_gpr -> .s_m33 m33_stl_compare.o
+00001bbc+0002c8  .s_m33_stl_cpu_n000 -> .s_m33 m33_stl_cpu_n000.o
+00001e84+0002a0  .s_m33_stl_cpu_n001 -> .s_m33 m33_stl_cpu_n001.o
+00002124+00019c  .s_m33_stl_cpu_n002 -> .s_m33 m33_stl_cpu_n002.o
+000022c0+000200  .s_m33_stl_cpu_n003 -> .s_m33 m33_stl_cpu_n003.o
+000024c0+000274  .s_m33_stl_cpu_n004 -> .s_m33 m33_stl_cpu_n004.o
+00002734+0003bc  .s_m33_stl_cpu_n005 -> .s_m33 m33_stl_cpu_n005.o
+00002af0+00012c  .s_m33_stl_cpu_n006 -> .s_m33 m33_stl_cpu_n006.o
+00002c1c+000044  .s_m33_stl_cpu_n007 -> .s_m33 m33_stl_cpu_n007.o
+00002c60+000210  .s_m33_stl_cpu_n008 -> .s_m33 m33_stl_cpu_n008.o
+00002e70+000460  .s_m33_stl_cpu_n009 -> .s_m33 m33_stl_cpu_n009.o
+000032d0+000210  .s_m33_stl_cpu_n010 -> .s_m33 m33_stl_cpu_n010.o
+000034e0+00015c  .s_m33_stl_cpu_n011 -> .s_m33 m33_stl_cpu_n011.o
+0000363c+0001e0  .s_m33_stl_cpu_n012 -> .s_m33 m33_stl_cpu_n012.o
+0000381c+00003c  .s_m33_stl_cpu_n013 -> .s_m33 m33_stl_cpu_n013.o
+00003858+000184  .s_m33_stl_cpu_n014 -> .s_m33 m33_stl_cpu_n014.o
+000039dc+000180  .s_m33_stl_cpu_n015 -> .s_m33 m33_stl_cpu_n015.o
+00003b5c+000188  .s_m33_stl_cpu_n016 -> .s_m33 m33_stl_cpu_n016.o
+00003ce4+00017c  .s_m33_stl_cpu_n017 -> .s_m33 m33_stl_cpu_n017.o
+00003e60+0005e8  .s_m33_stl_cpu_n018 -> .s_m33 m33_stl_cpu_n018.o
+00004448+00003c  .s_m33_stl_cpu_n019 -> .s_m33 m33_stl_cpu_n019.o
+00004484+000734  .s_m33_stl_cpu_n020 -> .s_m33 m33_stl_cpu_n020.o
+00004bb8+000608  .s_m33_stl_cpu_n021 -> .s_m33 m33_stl_cpu_n021.o
+000051c0+000248  .s_m33_stl_cpu_n022 -> .s_m33 m33_stl_cpu_n022.o
+00005408+000634  .s_m33_stl_cpu_n023 -> .s_m33 m33_stl_cpu_n023.o
+00005a3c+000654  .s_m33_stl_cpu_n024 -> .s_m33 m33_stl_cpu_n024.o
+00006090+00036c  .s_m33_stl_cpu_n025 -> .s_m33 m33_stl_cpu_n025.o
+000063fc+000100  .s_m33_stl_cpu_n026 -> .s_m33 m33_stl_cpu_n026.o
+000064fc+000294  .s_m33_stl_cpu_n027 -> .s_m33 m33_stl_cpu_n027.o
+00006790+0000b8  .s_m33_stl_cpu_n028 -> .s_m33 m33_stl_cpu_n028.o
+00006848+0006b4  .s_m33_stl_cpu_n029 -> .s_m33 m33_stl_cpu_n029.o
+00006efc+0005c8  .s_m33_stl_cpu_n030 -> .s_m33 m33_stl_cpu_n030.o
+000074c4+0004ec  .s_m33_stl_cpu_n031 -> .s_m33 m33_stl_cpu_n031.o
+000079b0+000f04  .s_m33_stl_cpu_n032 -> .s_m33 m33_stl_cpu_n032.o
+000088b4+000280  .s_m33_stl_cpu_n033 -> .s_m33 m33_stl_cpu_n033.o
+00008b34+0001c4  .s_m33_stl_cpu_n034 -> .s_m33 m33_stl_cpu_n034.o
+00008cf8+000550  .s_m33_stl_cpu_n035 -> .s_m33 m33_stl_cpu_n035.o
+00009248+00012c  .s_m33_stl_cpu_n036 -> .s_m33 m33_stl_cpu_n036.o
+00009374+000308  .s_m33_stl_cpu_n037 -> .s_m33 m33_stl_cpu_n037.o
+0000967c+000260  .s_m33_stl_cpu_n038 -> .s_m33 m33_stl_cpu_n038.o
+000098dc+000084  .s_m33_stl_cpu_n039 -> .s_m33 m33_stl_cpu_n039.o
+00009960+000084  .s_m33_stl_cpu_n040 -> .s_m33 m33_stl_cpu_n040.o
+000099e4+000084  .s_m33_stl_cpu_n041 -> .s_m33 m33_stl_cpu_n041.o
+00009a68+000084  .s_m33_stl_cpu_n042 -> .s_m33 m33_stl_cpu_n042.o
+00009aec+0000a4  .s_m33_stl_cpu_n043 -> .s_m33 m33_stl_cpu_n043.o
+00009b90+0005ec  .s_m33_stl_cpu_n044 -> .s_m33 m33_stl_cpu_n044.o
+0000a17c+000598  .s_m33_stl_cpu_n045 -> .s_m33 m33_stl_cpu_n045.o
+0000a714+000450  .s_m33_stl_cpu_n046 -> .s_m33 m33_stl_cpu_n046.o
+0000ab64+000170  .s_m33_stl_cpu_n047 -> .s_m33 m33_stl_cpu_n047.o
+0000acd4+000238  .s_m33_stl_cpu_n048 -> .s_m33 m33_stl_cpu_n048.o
+0000af0c+000180  .s_m33_stl_cpu_n049 -> .s_m33 m33_stl_cpu_n049.o
+0000b08c+00030c  .s_m33_stl_cpu_n050 -> .s_m33 m33_stl_cpu_n050.o
+0000b398+000438  .s_m33_stl_cpu_n051 -> .s_m33 m33_stl_cpu_n051.o
+0000b7d0+000120  .s_m33_stl_cpu_n052 -> .s_m33 m33_stl_cpu_n052.o
+0000b8f0+00016c  .s_m33_stl_cpu_n053 -> .s_m33 m33_stl_cpu_n053.o
+0000ba5c+000180  .s_m33_stl_cpu_n054 -> .s_m33 m33_stl_cpu_n054.o
+0000bbdc+000160  .s_m33_stl_cpu_n055 -> .s_m33 m33_stl_cpu_n055.o
+0000bd3c+00015c  .s_m33_stl_cpu_n056 -> .s_m33 m33_stl_cpu_n056.o
+0000be98+000154  .s_m33_stl_cpu_n057 -> .s_m33 m33_stl_cpu_n057.o
+0000bfec+00023c  .s_m33_stl_cpu_n058 -> .s_m33 m33_stl_cpu_n058.o
+0000c228+00019c  .s_m33_stl_cpu_n059 -> .s_m33 m33_stl_cpu_n059.o
+0000c3c4+000154  .s_m33_stl_cpu_n060 -> .s_m33 m33_stl_cpu_n060.o
+0000c518+00003c  .s_m33_stl_cpu_n061 -> .s_m33 m33_stl_cpu_n061.o
+0000c554+00003c  .s_m33_stl_cpu_n062 -> .s_m33 m33_stl_cpu_n062.o
+0000c590+000154  .s_m33_stl_cpu_n063 -> .s_m33 m33_stl_cpu_n063.o
+0000c6e4+0001fc  .s_m33_stl_cpu_n064 -> .s_m33 m33_stl_cpu_n064.o
+0000c8e0+000178  .s_m33_stl_cpu_n065 -> .s_m33 m33_stl_cpu_n065.o
+0000ca58+000190  .s_m33_stl_cpu_n066 -> .s_m33 m33_stl_cpu_n066.o
+0000cbe8+000298  .s_m33_stl_cpu_n067 -> .s_m33 m33_stl_cpu_n067.o
+0000ce80+00048c  .s_m33_stl_cpu_n068 -> .s_m33 m33_stl_cpu_n068.o
+0000d30c+0004a8  .s_m33_stl_cpu_n069 -> .s_m33 m33_stl_cpu_n069.o
+0000d7b4+000098  .s_m33_stl_cpu_n070 -> .s_m33 m33_stl_cpu_n070.o
+0000d84c+000200  .s_m33_stl_cpu_n071 -> .s_m33 m33_stl_cpu_n071.o
+0000da4c+000244  .s_m33_stl_cpu_n072 -> .s_m33 m33_stl_cpu_n072.o
+0000dc90+0002f0  .s_m33_stl_mpu_n000 -> .s_m33 m33_stl_mpu_n000.o
+0000df80+000058  .s_m33_stl_mpu_n001 -> .s_m33 m33_stl_mpu_n001.o
+0000dfd8+000058  .s_m33_stl_nvic_n000 -> .s_m33 m33_stl_nvic_n000.o
+0000e030+000048  .s_m33_stl_sdiv_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e078+000048  .s_m33_stl_udiv_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e0c0+0000dc  .s_m33_stl_vfmaf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e19c+0000dc  .s_m33_stl_vfmsf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e278+000044  .s_m33_stl_umull_test -> .s_m33  m33_stl_datavector_test_elements.o
+0000e2bc+0000d4  .s_m33_stl_vaddf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e390+0000d4  .s_m33_stl_vdivf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e464+0000d4  .s_m33_stl_vmulf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e538+0000d4  .s_m33_stl_vsqrtf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e60c+0000d4  .s_m33_stl_vsubf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e6e0+0000dc  .s_m33_stl_vfnmsf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e7bc+0000dc  .s_m33_stl_vfnmaf32_test -> .s_m33 m33_stl_datavector_test_elements.o
+0000e898+000004  .s_m33_stl_write_sp -> .s_m33 m33_stl_utils.o
+0000e89c+00000c  .s_m33_stl_deallocation_sp -> .s_m33 m33_stl_utils.o
+204e0018+000004  .bss             libsys.a(ind_exit.o)
+204e001c+000004  .bss             libsys.a(ind_crt1.o)
+204e000c+000001  .data            libsys.a(ind_lock.o)
+204e0020+000004  .bss             libsys.a(ind_errn.o)
+000010e0+000048  .secinfo         <section info>
+
+Load Map Mon Feb 02 11:01:04 2026
+Global Symbols (sorted alphabetically)
+
+ .rodata          0000e8d4+0000d8 DATA_VECT_SDIV_0
+ .rodata          0000e9ac+0000d8 DATA_VECT_UDIV_0
+ .rodata          0000ea84+000350 DATA_VECT_UMULL_0
+ .rodata          0000edd4+000140 DATA_VECT_VADDF32_0
+ .rodata          0000ef14+000140 DATA_VECT_VADDF32_1
+ .rodata          0000f054+000140 DATA_VECT_VADDF32_2
+ .rodata          0000f194+000140 DATA_VECT_VADDF32_3
+ .rodata          0000f2d4+000120 DATA_VECT_VDIVF32_0
+ .rodata          0000f3f4+000120 DATA_VECT_VDIVF32_1
+ .rodata          0000f514+000120 DATA_VECT_VDIVF32_2
+ .rodata          0000f634+000120 DATA_VECT_VDIVF32_3
+ .rodata          00010234+0000c8 DATA_VECT_VFMAF32_0
+ .rodata          000102fc+0000c8 DATA_VECT_VFMSF32_0
+ .rodata          000103c4+0000c8 DATA_VECT_VFNMAF32_0
+ .rodata          0001048c+0000c8 DATA_VECT_VFNMSF32_0
+ .rodata          0000f754+000120 DATA_VECT_VMULF32_0
+ .rodata          0000f874+000120 DATA_VECT_VMULF32_1
+ .rodata          0000f994+000120 DATA_VECT_VMULF32_2
+ .rodata          0000fab4+000120 DATA_VECT_VMULF32_3
+ .rodata          0000fbd4+000078 DATA_VECT_VSQRTF32_0
+ .rodata          0000fc4c+000078 DATA_VECT_VSQRTF32_1
+ .rodata          0000fcc4+000078 DATA_VECT_VSQRTF32_2
+ .rodata          0000fd3c+000078 DATA_VECT_VSQRTF32_3
+ .rodata          0000fdb4+000120 DATA_VECT_VSUBF32_0
+ .rodata          0000fed4+000120 DATA_VECT_VSUBF32_1
+ .rodata          0000fff4+000120 DATA_VECT_VSUBF32_2
+ .rodata          00010114+000120 DATA_VECT_VSUBF32_3
+ .text            00000d60+000008 DSB..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2Fm33_stl_exceptions.
+ .text            00000d68+000008 ISB..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2Fm33_stl_exceptions.
+ .text            00000498+000050 M33_STL
+ .text            000004e8+00002c M33_STL_Config
+ .text            00000b80+000062 M33_STL_MPU
+ .text            00000b2a+000056 M33_STL_NVIC
+                  00000000+00003e _Exit
+                  204e000c+000000 __DATA_RAM_ADDR
+                  00000001+000000 __DATA_RAM_SIZE
+                  00010554+000000 __DATA_ROM_ADDR
+                  204e0024+000000 __SDATA_RAM_ADDR
+                  00000000+000000 __SDATA_RAM_SIZE
+                  00010558+000000 __SDATA_ROM_ADDR
+                  00000000+000000 __atexit_cleanup_func
+                  00000000+000000 __cpp_exception_cleanup
+                  00000000+000004 __dotsyscall
+                  00000000+00000a __gh_errno_ptr
+                  00000000+00000c __gh_get_errno
+                  00000000+000000 __gh_iob_init
+                  00000000+000002 __gh_lock_init
+                  00000000+00000c __gh_set_errno
+                  00000000+000002 __ghsLock
+                  00000000+000002 __ghsUnlock
+                  00000000+00001c __ghs_at_exit
+                  00000000+000000 __ghs_board_cache_sync
+                  00000000+000000 __ghs_board_devices_init
+                  00000000+000000 __ghs_board_memory_init
+                  00000000+000000 __ghs_checksum
+                  00000000+000000 __ghs_coverage_init
+                  00000000+000000 __ghs_cpp_exception_cleanup
+                  00000000+000000 __ghs_cpp_exception_init
+                  00000001+000000 __ghs_cxx_do_thread_safe_local_static_inits
+                  00000000+000000 __ghs_decompress
+                  00000000+000000 __ghs_do_fp_init
+                  6699d36e+000000 __ghs_elxr_revision
+                  000316ae+000000 __ghs_elxr_version
+                  00000000+000002 __ghs_enterblock_func
+ .text            000004e8+000000 __ghs_eofn_M33_STL
+ .text            00000514+000000 __ghs_eofn_M33_STL_Config
+ .text            00000be2+000000 __ghs_eofn_M33_STL_MPU
+ .text            00000b80+000000 __ghs_eofn_M33_STL_NVIC
+ .text            00000478+000000 __ghs_eofn_enableFP
+ .text            00000498+000000 __ghs_eofn_errorHandler
+ .text            00000d5e+000000 __ghs_eofn_m33_stl_mem_manage_handler
+ .text            00000d60+000000 __ghs_eofn_m33_stl_mem_manage_user_handler
+ .text            00000466+000000 __ghs_eofn_main_pe0
+ .text            00000488+000000 __ghs_eofn_testPassed
+                  00000000+00030c __ghs_ind_crt0
+                  00000000+0000d8 __ghs_ind_crt1
+                  00000000+000000 __ghs_init_r4
+                  00000000+000000 __ghs_init_r5
+                  00000000+000000 __ghs_init_r6
+                  00000000+000004 __ghs_initial_dotsyscall
+                  00000002+000000 __ghs_log_fee_level
+                  00000000+000000 __ghs_malloc_init
+                  00000000+000000 __ghs_manprf_init
+                  00000000+000000 __ghs_rambootcodeend
+                  00000000+000000 __ghs_rambootcodestart
+                  00000000+000000 __ghs_rombootcodeend
+                  00000000+000000 __ghs_rombootcodestart
+                  00000000+000000 __ghs_set_stack_chk_guard
+ .data            204e000c+000001 __ghs_single_threaded
+                  00000000+000022 __ghs_syscall
+                  00000000+000026 __ghs_syscall64
+                  00000000+000000 __ghs_validate_ghtws
+ .fixaddr         000010e0+000000 __ghsbegin_fixaddr
+ .fixtype         000010e0+000000 __ghsbegin_fixtype
+                  00000000+000000 __ghsbegin_picbase
+                  00000000+000000 __ghsbegin_pidbase
+                  00000000+000000 __ghsbegin_robase
+ .secinfo         000010e0+000000 __ghsbegin_secinfo
+ .stack           204e0024+000000 __ghsbegin_stack
+ .secinfo         00001104+000000 __ghsbinfo_aclear
+ .secinfo         00001128+000000 __ghsbinfo_acopy
+ .secinfo         000010e0+000024 __ghsbinfo_clear
+ .secinfo         00001128+000000 __ghsbinfo_comacopy
+ .secinfo         00001128+000000 __ghsbinfo_comcopy
+ .secinfo         00001128+000000 __ghsbinfo_comtcopy
+ .secinfo         00001104+000024 __ghsbinfo_copy
+ .secinfo         00001128+000000 __ghsbinfo_tcopy
+ .secinfo         00001104+000000 __ghseinfo_clear
+ .secinfo         00001128+000000 __ghseinfo_comcopy
+ .secinfo         00001128+000000 __ghseinfo_copy
+ .fixaddr         000010e0+000000 __ghsend_fixaddr
+ .stack           204e0424+000000 __ghsend_stack
+                  00000000+000000 __ghssize_fixaddr
+ .isr_vector      00000000+000000 __isr_vector
+ .text            00001000+000000 __start
+ .text            0000107c+000000 __start_pe0
+                  00000000+000000 _cleanup
+                  00000000+00003e _exit
+                  00000000+0000ec _start_T
+ .text            00000466+000012 enableFP
+ .bss             204e001c+000004 environ
+ .bss             204e0020+000004 errno
+ .text            00000488+000010 errorHandler
+ .d_m33_stl_data_struct 204e0000+00000c exampleDataStruct
+ .bss             204e0014+000001 exc_MPU
+ .bss             204e0015+000001 exc_MPU_XN
+                  00000000+00002a exit
+ .text            00000a5a+000064 m33_stl_check_bitmask..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2FM33_STL.
+ .s_m33           00001bac+000000 m33_stl_compare_gpr
+ .text            00000af6+000034 m33_stl_count_tests..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2FM33_STL.
+ .s_m33           00001bbc+000000 m33_stl_cpu_n000
+ .s_m33           00001e84+000000 m33_stl_cpu_n001
+ .s_m33           00002124+000000 m33_stl_cpu_n002
+ .s_m33           000022c0+000000 m33_stl_cpu_n003
+ .s_m33           000024c0+000000 m33_stl_cpu_n004
+ .s_m33           00002734+000000 m33_stl_cpu_n005
+ .s_m33           00002af0+000000 m33_stl_cpu_n006
+ .s_m33           00002c1c+000000 m33_stl_cpu_n007
+ .s_m33           00002c60+000000 m33_stl_cpu_n008
+ .s_m33           00002e70+000000 m33_stl_cpu_n009
+ .s_m33           000032d0+000000 m33_stl_cpu_n010
+ .s_m33           000034e0+000000 m33_stl_cpu_n011
+ .s_m33           0000363c+000000 m33_stl_cpu_n012
+ .s_m33           0000381c+000000 m33_stl_cpu_n013
+ .s_m33           00003858+000000 m33_stl_cpu_n014
+ .s_m33           000039dc+000000 m33_stl_cpu_n015
+ .s_m33           00003b5c+000000 m33_stl_cpu_n016
+ .s_m33           00003ce4+000000 m33_stl_cpu_n017
+ .s_m33           00003e60+000000 m33_stl_cpu_n018
+ .s_m33           00004448+000000 m33_stl_cpu_n019
+ .s_m33           00004484+000000 m33_stl_cpu_n020
+ .s_m33           00004bb8+000000 m33_stl_cpu_n021
+ .s_m33           000051c0+000000 m33_stl_cpu_n022
+ .s_m33           00005408+000000 m33_stl_cpu_n023
+ .s_m33           00005a3c+000000 m33_stl_cpu_n024
+ .s_m33           00006090+000000 m33_stl_cpu_n025
+ .s_m33           000063fc+000000 m33_stl_cpu_n026
+ .s_m33           000064fc+000000 m33_stl_cpu_n027
+ .s_m33           00006790+000000 m33_stl_cpu_n028
+ .s_m33           00006848+000000 m33_stl_cpu_n029
+ .s_m33           00006efc+000000 m33_stl_cpu_n030
+ .s_m33           000074c4+000000 m33_stl_cpu_n031
+ .s_m33           000079b0+000000 m33_stl_cpu_n032
+ .s_m33           000088b4+000000 m33_stl_cpu_n033
+ .s_m33           00008b34+000000 m33_stl_cpu_n034
+ .s_m33           00008cf8+000000 m33_stl_cpu_n035
+ .s_m33           00009248+000000 m33_stl_cpu_n036
+ .s_m33           00009374+000000 m33_stl_cpu_n037
+ .s_m33           0000967c+000000 m33_stl_cpu_n038
+ .s_m33           000098dc+000000 m33_stl_cpu_n039
+ .s_m33           00009960+000000 m33_stl_cpu_n040
+ .s_m33           000099e4+000000 m33_stl_cpu_n041
+ .s_m33           00009a68+000000 m33_stl_cpu_n042
+ .s_m33           00009aec+000000 m33_stl_cpu_n043
+ .s_m33           00009b90+000000 m33_stl_cpu_n044
+ .s_m33           0000a17c+000000 m33_stl_cpu_n045
+ .s_m33           0000a714+000000 m33_stl_cpu_n046
+ .s_m33           0000ab64+000000 m33_stl_cpu_n047
+ .s_m33           0000acd4+000000 m33_stl_cpu_n048
+ .s_m33           0000af0c+000000 m33_stl_cpu_n049
+ .s_m33           0000b08c+000000 m33_stl_cpu_n050
+ .s_m33           0000b398+000000 m33_stl_cpu_n051
+ .s_m33           0000b7d0+000000 m33_stl_cpu_n052
+ .s_m33           0000b8f0+000000 m33_stl_cpu_n053
+ .s_m33           0000ba5c+000000 m33_stl_cpu_n054
+ .s_m33           0000bbdc+000000 m33_stl_cpu_n055
+ .s_m33           0000bd3c+000000 m33_stl_cpu_n056
+ .s_m33           0000be98+000000 m33_stl_cpu_n057
+ .s_m33           0000bfec+000000 m33_stl_cpu_n058
+ .s_m33           0000c228+000000 m33_stl_cpu_n059
+ .s_m33           0000c3c4+000000 m33_stl_cpu_n060
+ .s_m33           0000c518+000000 m33_stl_cpu_n061
+ .s_m33           0000c554+000000 m33_stl_cpu_n062
+ .s_m33           0000c590+000000 m33_stl_cpu_n063
+ .s_m33           0000c6e4+000000 m33_stl_cpu_n064
+ .s_m33           0000c8e0+000000 m33_stl_cpu_n065
+ .s_m33           0000ca58+000000 m33_stl_cpu_n066
+ .s_m33           0000cbe8+000000 m33_stl_cpu_n067
+ .s_m33           0000ce80+000000 m33_stl_cpu_n068
+ .s_m33           0000d30c+000000 m33_stl_cpu_n069
+ .s_m33           0000d7b4+000000 m33_stl_cpu_n070
+ .s_m33           0000d84c+000000 m33_stl_cpu_n071
+ .s_m33           0000da4c+000000 m33_stl_cpu_n072
+ .s_m33           0000e89c+000000 m33_stl_deallocation_sp
+ .s_m33           00001b80+000000 m33_stl_err_test
+ .s_m33           00001ad4+000000 m33_stl_fpu_init
+ .s_m33           00001b9c+000000 m33_stl_full_context_restore
+ .s_m33           00001a84+000000 m33_stl_full_context_save
+ .s_m33           00001b70+000000 m33_stl_full_init
+ .s_m33           00001b96+000000 m33_stl_gpr_context_restore
+ .s_m33           00001a7c+000000 m33_stl_gpr_context_save
+ .s_m33           00001a94+000000 m33_stl_gpr_init
+ .text            00000abe+000038 m33_stl_init_dataStruct..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2FM33_STL.
+ .text            00000ca0+0000be m33_stl_mem_manage_handler
+ .text            00000d5e+000002 m33_stl_mem_manage_user_handler
+ .s_m33           00001128+00009c m33_stl_mpuRegisterInfo
+ .text            00000be2+00006e m33_stl_mpu_functionality..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2FM33_STL.
+ .s_m33           0000dc90+000000 m33_stl_mpu_n000
+ .s_m33           0000df80+000000 m33_stl_mpu_n001
+ .text            00000c50+000050 m33_stl_mpu_register_verifier..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2FM33_STL.
+ .s_m33           000011c4+0008b8 m33_stl_nvicRegisterInfo
+ .s_m33           0000dfd8+000000 m33_stl_nvic_n000
+ .s_m33           00001b8e+000000 m33_stl_pass_test
+ .text            00000514+000546 m33_stl_scheduler..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2FM33_STL.
+ .s_m33           0000e030+000000 m33_stl_sdiv_test
+ .s_m33           0000e078+000000 m33_stl_udiv_test
+ .s_m33           0000e278+000000 m33_stl_umull_test
+ .s_m33           0000e2bc+000000 m33_stl_vaddf32_test
+ .s_m33           0000e390+000000 m33_stl_vdivf32_test
+ .s_m33           0000e0c0+000000 m33_stl_vfmaf32_test
+ .s_m33           0000e19c+000000 m33_stl_vfmsf32_test
+ .s_m33           0000e7bc+000000 m33_stl_vfnmaf32_test
+ .s_m33           0000e6e0+000000 m33_stl_vfnmsf32_test
+ .s_m33           0000e464+000000 m33_stl_vmulf32_test
+ .s_m33           0000e538+000000 m33_stl_vsqrtf32_test
+ .s_m33           0000e60c+000000 m33_stl_vsubf32_test
+ .s_m33           0000e898+000000 m33_stl_write_sp
+                  00000000+000000 main
+ .text            00000400+000066 main_pe0
+                  00000000+0001bc memcpy
+                  00000000+000088 memset
+ .bss             204e0010+000004 s_m33_stl_dataStruct..d.3A.2FWORKSPACE.2FREPOs.2FResiltech_STL.2FCode.2FRes_STL_M33_U5Lx_Renesas_SW_1.2E0.2E0.2Frcar_u5lx.2Fghs.2Fobjects.2FM33_STL.
+ .text            00000478+000010 testPassed
