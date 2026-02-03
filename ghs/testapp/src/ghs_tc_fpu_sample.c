@@ -15,6 +15,8 @@ extern uint32_t ghs_tc_fpu_vadd_f32_u32(uint32_t a_bits, uint32_t b_bits);
 
 static volatile float g_last_sum = 0.0f;
 
+
+
 static inline uint32_t f32_to_u32(float f)
 {
     union { float f; uint32_t u; } v;

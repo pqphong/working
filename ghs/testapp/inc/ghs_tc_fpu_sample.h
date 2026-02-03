@@ -9,7 +9,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-void m33_stl_mem_manage_handler(void);
+
 /* Run the testcase: enable FPU then execute an FPU instruction. */
 void ghs_tc_fpu_sample_run(void);
 

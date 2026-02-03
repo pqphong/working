@@ -45,7 +45,7 @@ __isr_vector:
 	.word	(__start + 1)         ; Reset Handler
 	.word	(_dummy + 1)          ; NMI Handler
 	.word	(_dummy + 1)          ; Hard Fault Handler
-	.word	(m33_stl_mem_manage_handler + 1)          ; MPU Fault Handler
+	.word	(_dummy + 1)          ; MPU Fault Handler
 	.word	(_dummy + 1)          ; Bus Fault Handler
 	.word	(_dummy + 1)          ; Usage Fault Handler
 	.word	(_dummy + 1)          ; Reserved

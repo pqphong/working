@@ -21,6 +21,7 @@ C_OBJS := 	$(BUILD_DIR)/main0.o \
 			$(BUILD_DIR)/boot.o \
 			$(BUILD_DIR)/cstart0.o \
 			$(BUILD_DIR)/vecttble0.o \
+			$(BUILD_DIR)/ghs_tc_fpu_sample.o
 
 S_OBJS :=	$(BUILD_DIR)/ghs_tc_fpu_sample_asm.o
 
@@ -53,6 +54,8 @@ $(BUILD_DIR)/%.o: $(PROJ_DIR)/testapp/src/%.asm
 	$(BUILD_s)
 
 $(BUILD_DIR)/main0.o: $(PROJ_DIR)/main0.c
+	$(BUILD_c)
+$(BUILD_DIR)/ghs_tc_fpu_sample.o: $(PROJ_DIR)/testapp/src/ghs_tc_fpu_sample.c
 	$(BUILD_c)
 $(BUILD_DIR)/cstart0.o: $(PROJ_DIR)/cstart0.arm
 	$(BUILD_s)
