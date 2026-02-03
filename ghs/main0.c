@@ -62,7 +62,7 @@ Exported global variables and functions (to be accessed by other files)
 * Return Value : none
 *******************************************************************************/
 #include <stdio.h>
-#include "M33_STL.h"
+#include "ghs_tc_fpu_sample.h"
 
 
 
@@ -72,70 +72,18 @@ void errorHandler(void);
 
 void enableFP (void);
 
-m33_stl_dataStruct_t __attribute__((section(".d_m33_stl_data_struct"))) exampleDataStruct;
-
+extern void ghs_tc_fpu_sample_run(void);
 
 void main_pe0(void)
 {
+    /* TestApp: FPU config then use an FPU instruction */
+    ghs_tc_fpu_sample_run();
 
-    uint32_t bitMask0;
-    uint32_t bitMask1;
-    uint32_t bitMask2;
-    uint32_t result;
-    uint8_t forceFail;
-    uint32_t bitMaskArray[3];
-
-    uint8_t mode;
-    uint8_t mpu_region;
-
-    mode = 0x2;
-    mpu_region = 0x0;
-
-    // Defensive initialization for M33_STL API input parameters
-    bitMask0 = M33_STL_FAIL;
-    result = M33_STL_FAIL;
-
-    uint32_t* addressMPU = (uint32_t*) 0x204F0000;
-
-    // Defensive initialization of data structure fields
-    exampleDataStruct.Fault_Type = 0xFFFFFFFFU;
-    exampleDataStruct.STL_Status = 0xFFFFFFFFU;
-    exampleDataStruct.Test_ID = 0xFFFFFFFFU;
-    // Initialize bitMaskArray parameter
-    bitMask0 =0xFFFFFFFF;
-    bitMask1 =0xFFFFFFFF;
-    bitMask2 =0x000001FF;
-
-    enableFP();
-
-    bitMaskArray[0] = bitMask0;
-    bitMaskArray[1] = bitMask1;
-    bitMaskArray[2] = bitMask2;
-
-    // Set forceFail parameter to 0x0 - Disable force fail functionality
-    forceFail = 0x0U;
-    // Configure starting address of data structure containing info
-    // about STL execution
-    result = M33_STL_Config(&exampleDataStruct);
-    if (result == M33_STL_PASS){
-    	result = M33_STL_FAIL;
-        // Calls all Tests indicated by bitMask
-    	result = M33_STL(bitMaskArray, forceFail);
-        if (result == M33_STL_PASS){
-            result = M33_STL_FAIL;
-            result = M33_STL_MPU(mode, addressMPU, mpu_region);
-            if (result == M33_STL_PASS){
-            	result = M33_STL_FAIL;
-            	result = M33_STL_NVIC();
-            }
-        }
-
-        if (result == M33_STL_PASS) {
-        	testPassed();
-        }
+    /* Halt here so you can inspect variables in Multi IDE */
+    while(1)
+    {
+        __asm__ volatile ("nop");
     }
-    errorHandler();
-
 }
 
 void enableFP (void)

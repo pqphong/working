@@ -1,0 +1,147 @@
+; Copyright (c) 2024 Renesas Electronics Corporation. All rights reserved.
+;
+; Warranty Disclaimer :
+;
+; Because the Product(s) is licensed free of charge, there is no warranty of
+; any kind whatsoever and expressly disclaimed and excluded by Renesas,
+; either expressed or implied, including but not limited to those for non-
+; infringement of intellectual property, merchantability and/or fitness for
+; the particular purpose. Renesas shall not have any obligation to maintain,
+; service or provide bug fixes for the supplied Product(s) and/or the
+; Application.
+;
+; Each User is solely responsible for determining the appropriateness of using
+; the Product(s) and assumes all risks associated with its exercise of rights
+; under this Agreement, including, but not limited to the risks and costs of
+; program errors, compliance with applicable laws, damage to
+; or loss of data, programs or equipment, and unavailability or interruption
+; of operations.
+;
+; Limitation of Liability :
+;
+; In no event shall Renesas be liable to the User for any incidental,
+; consequential, indirect, or punitive damage (including but not limited to
+; lost profits) regardless of whether such liability is based on breach of
+; contract, tort, strict liability, breach of warranties, failure of essential
+; purpose or otherwise and even if advised of the possibility of such damages.
+; Renesas shall not be liable for any services or products provided by third
+; party vendors, developers or consultants identified or referred to the User
+; by Renesas in connection with the Product(s) and/or the Application.
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+;   valiables
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+;  CPU RAM address
+CPU_RAM_CPU0_ADDR   .equ   0x204E0000u      ; CPU RAM(CPU0) start address
+CPU_RAM_CPU0_END    .equ   0x20500000u      ; CPU RAM(CPU0) end address
+
+;  Global RAM address
+GLOBAL_RAM0_ADDR    .equ   0x28000000u      ; Global RAM start address
+GLOBAL_RAM0_END     .equ   0x280B0000u      ; Global RAM end address
+
+;  Retention RAM address
+RETENTION_RAM_ADDR  .equ   0x2C000000u      ; Retention RAM start address
+RETENTION_RAM_END   .equ   0x2C008000u      ; Retention RAM end address
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+;;;;;;-  Basic Initialisation of the controller
+;;;;;;-  User modifiable section
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;  __start
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  .section ".text", .text
+  .align   1024
+  .globl __start
+__start:
+
+  ;;;;;;;;;;;;;;;;;
+  ; Register Initialization
+  ;;;;;;;;;;;;;;;;;
+
+  ;- General purpose register
+  mov   r0, #0
+  mov   r1, r0
+  mov   r2, r0
+  mov   r3, r0
+  mov   r4, r0
+  mov   r5, r0
+  mov   r6, r0
+  mov   r7, r0
+  mov   r8, r0
+  mov   r9, r0
+  mov   r10,r0
+  mov   r11,r0
+  mov   r12,r0
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+;  __start_PE0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+
+__start_PE0:
+
+  ldr     r6, =__ghsbegin_stack     ; clear .stack section area
+  ldr     r7, =__ghsend_stack
+  bl      _zeroclr4                 ; call zero clear funtion
+
+  ; bl      clkGearUp                 ; clock gearup
+  ; cmp     r0, #1
+  ; bne     _exit
+
+  ;bl      _hdwinit_PE0              ; call initialize hardware function
+
+  b       __start_pe0
+
+_exit:
+  NOP
+  b       _exit
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+;  _hdwinit_PE0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+
+  .section  ".text", .text
+  .align    4
+
+_hdwinit_PE0:
+  mov     r3, LR                ; save return address
+
+  ; clear Global RAM
+  ldr     r6, =GLOBAL_RAM0_ADDR
+  ldr     r7, =GLOBAL_RAM0_END
+  bl      _zeroclr4             ; call zero clear function
+
+  ; clear CPU RAM(CPU0)
+  ldr     r6, =CPU_RAM_CPU0_ADDR
+  ldr     r7, =CPU_RAM_CPU0_END
+  bl      _zeroclr4
+
+  ; clear Retention RAM
+  ldr     r6, =RETENTION_RAM_ADDR
+  ldr     r7, =RETENTION_RAM_END
+  bl      _zeroclr4
+
+  mov     LR, r3
+  bx      LR                    ; return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+;  zeroclr4
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-
+
+  .align    4
+_zeroclr4:
+  mov     r0, #0
+  b       .L.zeroclr4.2
+.L.zeroclr4.1:
+  str      r0, [r6]
+  add      r6, #4
+.L.zeroclr4.2:
+  cmp      r6, r7
+  bne       .L.zeroclr4.1
+  bx       LR                   ; return
+
+
+

@@ -18,98 +18,11 @@ ifeq ($(DEVICE),U5L4)
 endif
 
 C_OBJS := 	$(BUILD_DIR)/main0.o \
-			$(BUILD_DIR)/M33_STL.o \
-			$(BUILD_DIR)/m33_stl_datavect_Data.o \
-			$(BUILD_DIR)/m33_stl_registerInfo.o \
-			$(BUILD_DIR)/m33_stl_exceptions.o \
 			$(BUILD_DIR)/boot.o \
 			$(BUILD_DIR)/cstart0.o \
 			$(BUILD_DIR)/vecttble0.o \
 
-
-
-
-S_OBJS :=	$(BUILD_DIR)/m33_stl_in_context_switch.o \
-			$(BUILD_DIR)/m33_stl_out_context_switch.o \
-			$(BUILD_DIR)/m33_stl_compare.o \
-			$(BUILD_DIR)/m33_stl_cpu_n000.o \
-			$(BUILD_DIR)/m33_stl_cpu_n001.o \
-			$(BUILD_DIR)/m33_stl_cpu_n002.o \
-			$(BUILD_DIR)/m33_stl_cpu_n003.o \
-			$(BUILD_DIR)/m33_stl_cpu_n004.o \
-			$(BUILD_DIR)/m33_stl_cpu_n005.o \
-			$(BUILD_DIR)/m33_stl_cpu_n006.o \
-			$(BUILD_DIR)/m33_stl_cpu_n007.o \
-			$(BUILD_DIR)/m33_stl_cpu_n008.o \
-			$(BUILD_DIR)/m33_stl_cpu_n009.o \
-			$(BUILD_DIR)/m33_stl_cpu_n010.o \
-			$(BUILD_DIR)/m33_stl_cpu_n011.o \
-			$(BUILD_DIR)/m33_stl_cpu_n012.o \
-			$(BUILD_DIR)/m33_stl_cpu_n013.o \
-			$(BUILD_DIR)/m33_stl_cpu_n014.o \
-			$(BUILD_DIR)/m33_stl_cpu_n015.o \
-			$(BUILD_DIR)/m33_stl_cpu_n016.o \
-			$(BUILD_DIR)/m33_stl_cpu_n017.o \
-			$(BUILD_DIR)/m33_stl_cpu_n018.o \
-			$(BUILD_DIR)/m33_stl_cpu_n019.o \
-			$(BUILD_DIR)/m33_stl_cpu_n020.o \
-			$(BUILD_DIR)/m33_stl_cpu_n021.o \
-			$(BUILD_DIR)/m33_stl_cpu_n022.o \
-			$(BUILD_DIR)/m33_stl_cpu_n023.o \
-			$(BUILD_DIR)/m33_stl_cpu_n024.o \
-			$(BUILD_DIR)/m33_stl_cpu_n025.o \
-			$(BUILD_DIR)/m33_stl_cpu_n026.o \
-			$(BUILD_DIR)/m33_stl_cpu_n027.o \
-			$(BUILD_DIR)/m33_stl_cpu_n028.o \
-			$(BUILD_DIR)/m33_stl_cpu_n029.o \
-			$(BUILD_DIR)/m33_stl_cpu_n030.o \
-			$(BUILD_DIR)/m33_stl_cpu_n031.o \
-			$(BUILD_DIR)/m33_stl_cpu_n032.o \
-			$(BUILD_DIR)/m33_stl_cpu_n033.o \
-			$(BUILD_DIR)/m33_stl_cpu_n034.o \
-			$(BUILD_DIR)/m33_stl_cpu_n035.o \
-			$(BUILD_DIR)/m33_stl_cpu_n036.o \
-			$(BUILD_DIR)/m33_stl_cpu_n037.o \
-			$(BUILD_DIR)/m33_stl_cpu_n038.o \
-			$(BUILD_DIR)/m33_stl_cpu_n039.o \
-			$(BUILD_DIR)/m33_stl_cpu_n040.o \
-			$(BUILD_DIR)/m33_stl_cpu_n041.o \
-			$(BUILD_DIR)/m33_stl_cpu_n042.o \
-			$(BUILD_DIR)/m33_stl_cpu_n043.o \
-			$(BUILD_DIR)/m33_stl_cpu_n044.o \
-			$(BUILD_DIR)/m33_stl_cpu_n045.o \
-			$(BUILD_DIR)/m33_stl_cpu_n046.o \
-			$(BUILD_DIR)/m33_stl_cpu_n047.o \
-			$(BUILD_DIR)/m33_stl_cpu_n048.o \
-			$(BUILD_DIR)/m33_stl_cpu_n049.o \
-			$(BUILD_DIR)/m33_stl_cpu_n050.o \
-			$(BUILD_DIR)/m33_stl_cpu_n051.o \
-			$(BUILD_DIR)/m33_stl_cpu_n052.o \
-			$(BUILD_DIR)/m33_stl_cpu_n053.o \
-			$(BUILD_DIR)/m33_stl_cpu_n054.o \
-			$(BUILD_DIR)/m33_stl_cpu_n055.o \
-			$(BUILD_DIR)/m33_stl_cpu_n056.o \
-			$(BUILD_DIR)/m33_stl_cpu_n057.o \
-			$(BUILD_DIR)/m33_stl_cpu_n058.o \
-			$(BUILD_DIR)/m33_stl_cpu_n059.o \
-			$(BUILD_DIR)/m33_stl_cpu_n060.o \
-			$(BUILD_DIR)/m33_stl_cpu_n061.o \
-			$(BUILD_DIR)/m33_stl_cpu_n062.o \
-			$(BUILD_DIR)/m33_stl_cpu_n063.o \
-			$(BUILD_DIR)/m33_stl_cpu_n064.o \
-			$(BUILD_DIR)/m33_stl_cpu_n065.o \
-			$(BUILD_DIR)/m33_stl_cpu_n066.o \
-			$(BUILD_DIR)/m33_stl_cpu_n067.o \
-			$(BUILD_DIR)/m33_stl_cpu_n068.o \
-			$(BUILD_DIR)/m33_stl_cpu_n069.o \
-			$(BUILD_DIR)/m33_stl_cpu_n070.o \
-			$(BUILD_DIR)/m33_stl_cpu_n071.o \
-			$(BUILD_DIR)/m33_stl_cpu_n072.o \
-			$(BUILD_DIR)/m33_stl_mpu_n000.o \
-			$(BUILD_DIR)/m33_stl_mpu_n001.o \
-			$(BUILD_DIR)/m33_stl_nvic_n000.o \
-			$(BUILD_DIR)/m33_stl_datavector_test_elements.o \
-			$(BUILD_DIR)/m33_stl_utils.o
+S_OBJS :=	$(BUILD_DIR)/ghs_tc_fpu_sample_asm.o
 
 APP_ELF = $(OUT_DIR)/M33_STL.out
 
@@ -134,18 +47,11 @@ BUILD_s = $(AS) $(ASOPT) $(ASDEF) $(INCLUDE_DIRS) -c -o $@ $<
 LINK = $(LD) $(LDFLAGS) -o $@ $(C_OBJS) $(S_OBJS)
 
 # Object creation
-$(BUILD_DIR)/%.o: $(PROJ_DIR)/../STL/diagnostic/scheduler/src/%.c
+$(BUILD_DIR)/%.o: $(PROJ_DIR)/testapp/src/%.c
 	$(BUILD_c)
-$(BUILD_DIR)/%.o: $(PROJ_DIR)/../STL/diagnostic/common/src/%.c
-	$(BUILD_c)
-$(BUILD_DIR)/%.o: $(PROJ_DIR)/../STL/diagnostic/common/src/%.asm
+$(BUILD_DIR)/%.o: $(PROJ_DIR)/testapp/src/%.asm
 	$(BUILD_s)
-$(BUILD_DIR)/%.o: $(PROJ_DIR)/../STL/diagnostic/tests/cpu/src/%.asm
-	$(BUILD_s)
-$(BUILD_DIR)/%.o: $(PROJ_DIR)/../STL/diagnostic/tests/nvic/src/%.asm
-	$(BUILD_s)
-$(BUILD_DIR)/%.o: $(PROJ_DIR)/../STL/diagnostic/tests/mpu/src/%.asm
-	$(BUILD_s)
+
 $(BUILD_DIR)/main0.o: $(PROJ_DIR)/main0.c
 	$(BUILD_c)
 $(BUILD_DIR)/cstart0.o: $(PROJ_DIR)/cstart0.arm

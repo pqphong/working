@@ -5,9 +5,9 @@ PROJ_DIR = $(CURDIR)
 BUILD_DIR = $(PROJ_DIR)/objects
 OUT_DIR = $(PROJ_DIR)/Debug
 
-CC = C:\ghs\comp_202414\ccarm.exe
-AS = C:\ghs\comp_202414\ccarm.exe
-LD = C:\ghs\comp_202414\ccarm.exe
+CC = D:\comp_202414\ccarm.exe
+AS = D:\comp_202414\ccarm.exe
+LD = D:\comp_202414\ccarm.exe
 
 # Device parameter
 DEVICE ?= U5L4
@@ -30,9 +30,5 @@ CCDEF=
 LDFLAGS = -object_dir=Debug -cpu=cortexm33 -delete -e __start
 
 # Include folders
-INCLUDE_DIRS = -I$(PROJ_DIR)/../STL/diagnostic/common/inc \
-				-I$(PROJ_DIR)/../STL/diagnostic/scheduler/inc \
-				-I$(PROJ_DIR)/../STL/diagnostic/tests/cpu/inc \
-				-I$(PROJ_DIR)/../STL/diagnostic/tests/mpu/inc \
-				-I$(PROJ_DIR)/../STL/diagnostic/tests/nvic/inc
+INCLUDE_DIRS = -I$(PROJ_DIR)/testapp/inc
 
