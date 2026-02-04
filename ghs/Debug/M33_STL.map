@@ -10,25 +10,25 @@ Release Date: Fri Jul 19 02:00:00 2024
 
 
 
-Load Map Wed Feb 04 00:37:37 2026
+Load Map Wed Feb 04 10:29:23 2026
 Image Summary
 
   Section              Base      Size(hex)    Size(dec)  SecOffs
   .start.CFLASH_USER_AREA0 00000000  00000000            0   0000000
   .isr_vector          00000000  00000358          856   0000400
-  .text                00000400  00000530         1328   0000800
-  .fixaddr             00000930  00000000            0   0000000
-  .fixtype             00000930  00000000            0   0000000
-  .secinfo             00000930  00000048           72   0000d30
-  .s_m33               00000978  00000000            0   0000000
-  .rodata              00000978  0000002c           44   0000d78
-  .ROM.data            000009a4  00000001            1   0000da4
-  .ROM.tls.cond.data   000009a5  00000000            0   0000000
-  .ROM.sdata           000009a8  00000000            0   0000000
+  .text                00000400  00000528         1320   0000800
+  .fixaddr             00000928  00000000            0   0000000
+  .fixtype             00000928  00000000            0   0000000
+  .secinfo             00000928  00000048           72   0000d28
+  .s_m33               00000970  00000018           24   0000d70
+  .rodata              00000988  0000002c           44   0000d88
+  .ROM.data            000009b4  00000001            1   0000db4
+  .ROM.tls.cond.data   000009b5  00000000            0   0000000
+  .ROM.sdata           000009b8  00000000            0   0000000
   .end.CFLASH_USER_AREA0 00400000  00000000            0   0000000
   .start.CPU_RAM_CPU0  204e0000  00000000            0   0000000
   .d_m33_stl_data_struct 204e0000  00000000            0   0000000
-  .data                204e0000  00000001            1   0000da4
+  .data                204e0000  00000001            1   0000db4
   .tls.cond.data       204e0001  00000000            0   0000000
   .bss                 204e0004  00000010           16   0000000
   .tls.cond.bss        204e0014  00000000            0   0000000
@@ -42,36 +42,35 @@ Image Summary
   .end.CPU_RAM_CPU0    20500000  00000000            0   0000000
   CSA_OFFSET_0x200     40121200  00000000            0   0000000
   CSA_OFFSET_0x300     40121300  00000000            0   0000000
-  .ghs_tc_fpu_sample_run 40121300  00000018           24   0001e58
 
-Load Map Wed Feb 04 00:37:37 2026
+Load Map Wed Feb 04 10:29:23 2026
 Module Summary
 
   Origin+Size    Section          Module
-00000978+00002c  .rodata          crt0m.o
+00000988+00002c  .rodata          crt0m.o
 00000400+00003c  .text            main0.o
 00000800+00007c  .text            boot.o
 0000087c+000060  .text            cstart0.o
 000008dc+000004  .text            vecttble0.o
-000008e0+000050  .text            ghs_tc_fpu_sample.o
+000008e0+000048  .text            ghs_tc_fpu_sample.o
 204e0004+000004  .bss             ghs_tc_fpu_sample.o
-40121300+000018  .ghs_tc_fpu_sample_run ghs_tc_fpu_sample_asm.o
+00000970+000018  .s_m33ghs_tc_fpu_sample_run -> .s_m33 ghs_tc_fpu_sample_asm.o
 204e0008+000004  .bss             libsys.a(ind_exit.o)
 204e000c+000004  .bss             libsys.a(ind_crt1.o)
 204e0000+000001  .data            libsys.a(ind_lock.o)
 204e0010+000004  .bss             libsys.a(ind_errn.o)
-00000930+000048  .secinfo         <section info>
+00000928+000048  .secinfo         <section info>
 
-Load Map Wed Feb 04 00:37:37 2026
+Load Map Wed Feb 04 10:29:23 2026
 Global Symbols (sorted alphabetically)
 
                   00000000+00003e _Exit
                   204e0000+000000 __DATA_RAM_ADDR
                   00000001+000000 __DATA_RAM_SIZE
-                  000009a4+000000 __DATA_ROM_ADDR
+                  000009b4+000000 __DATA_ROM_ADDR
                   204e0014+000000 __SDATA_RAM_ADDR
                   00000000+000000 __SDATA_RAM_SIZE
-                  000009a8+000000 __SDATA_ROM_ADDR
+                  000009b8+000000 __SDATA_ROM_ADDR
                   00000000+000000 __atexit_cleanup_func
                   00000000+000000 __cpp_exception_cleanup
                   00000000+000004 __dotsyscall
@@ -81,7 +80,6 @@ Global Symbols (sorted alphabetically)
                   00000000+000002 __gh_lock_init
                   00000000+00000c __gh_set_errno
                   00000000+000002 __ghsLock
- .text            00000928+000008 __ghsTfar__0_.ghs_tc_fpu_sample_run_ghs_tc_fpu_vadd_f32_u32
                   00000000+000002 __ghsUnlock
                   00000000+00001c __ghs_at_exit
                   00000000+000000 __ghs_board_cache_sync
@@ -121,25 +119,25 @@ Global Symbols (sorted alphabetically)
                   00000000+000022 __ghs_syscall
                   00000000+000026 __ghs_syscall64
                   00000000+000000 __ghs_validate_ghtws
- .fixaddr         00000930+000000 __ghsbegin_fixaddr
- .fixtype         00000930+000000 __ghsbegin_fixtype
+ .fixaddr         00000928+000000 __ghsbegin_fixaddr
+ .fixtype         00000928+000000 __ghsbegin_fixtype
                   00000000+000000 __ghsbegin_picbase
                   00000000+000000 __ghsbegin_pidbase
                   00000000+000000 __ghsbegin_robase
- .secinfo         00000930+000000 __ghsbegin_secinfo
+ .secinfo         00000928+000000 __ghsbegin_secinfo
  .stack           204e0014+000000 __ghsbegin_stack
- .secinfo         00000954+000000 __ghsbinfo_aclear
- .secinfo         00000978+000000 __ghsbinfo_acopy
- .secinfo         00000930+000024 __ghsbinfo_clear
- .secinfo         00000978+000000 __ghsbinfo_comacopy
- .secinfo         00000978+000000 __ghsbinfo_comcopy
- .secinfo         00000978+000000 __ghsbinfo_comtcopy
- .secinfo         00000954+000024 __ghsbinfo_copy
- .secinfo         00000978+000000 __ghsbinfo_tcopy
- .secinfo         00000954+000000 __ghseinfo_clear
- .secinfo         00000978+000000 __ghseinfo_comcopy
- .secinfo         00000978+000000 __ghseinfo_copy
- .fixaddr         00000930+000000 __ghsend_fixaddr
+ .secinfo         0000094c+000000 __ghsbinfo_aclear
+ .secinfo         00000970+000000 __ghsbinfo_acopy
+ .secinfo         00000928+000024 __ghsbinfo_clear
+ .secinfo         00000970+000000 __ghsbinfo_comacopy
+ .secinfo         00000970+000000 __ghsbinfo_comcopy
+ .secinfo         00000970+000000 __ghsbinfo_comtcopy
+ .secinfo         0000094c+000024 __ghsbinfo_copy
+ .secinfo         00000970+000000 __ghsbinfo_tcopy
+ .secinfo         0000094c+000000 __ghseinfo_clear
+ .secinfo         00000970+000000 __ghseinfo_comcopy
+ .secinfo         00000970+000000 __ghseinfo_copy
+ .fixaddr         00000928+000000 __ghsend_fixaddr
  .stack           204e0414+000000 __ghsend_stack
                   00000000+000000 __ghssize_fixaddr
  .isr_vector      00000000+000000 __isr_vector
@@ -156,7 +154,7 @@ Global Symbols (sorted alphabetically)
  .bss             204e0004+000004 g_last_sum..d.3A.2FPhongPham.2FResiltech_STL.2Fghs.2Fobjects.2Fghs_tc_fpu_sample.
  .text            00000914+00000e ghs_tc_fpu_get_last_sum
  .text            000008e0+000034 ghs_tc_fpu_sample_run
- .ghs_tc_fpu_sample_run 40121300+000000 ghs_tc_fpu_vadd_f32_u32
+ .s_m33           00000970+000000 ghs_tc_fpu_vadd_f32_u32
                   00000000+000000 main
  .text            00000400+00000a main_pe0
                   00000000+0001bc memcpy

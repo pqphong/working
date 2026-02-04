@@ -5,7 +5,7 @@
 
 #ifdef __GHS__
 
-    .section .ghs_tc_fpu_sample_run,"ax"
+    .section .s_m33ghs_tc_fpu_sample_run,"ax"
     .global ghs_tc_fpu_vadd_f32_u32
 
 #endif /* __GHS__ */

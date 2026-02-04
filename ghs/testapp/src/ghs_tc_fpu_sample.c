@@ -42,8 +42,8 @@ void ghs_tc_fpu_sample_run(void)
 
     /* 3) Use FPU */
     {
-        uint32_t a = f32_to_u32(2.5f);
-        uint32_t b = f32_to_u32(2.1f);
+        uint32_t a = f32_to_u32(1.5f);
+        uint32_t b = f32_to_u32(2.4f);
         uint32_t r = ghs_tc_fpu_vadd_f32_u32(a, b);
         g_last_sum = u32_to_f32(r);
     }
