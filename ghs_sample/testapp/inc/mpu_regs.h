@@ -1,0 +1,23 @@
+// TEST ELEMENT 269 Input value
+#define M33_STL_TE269_INPUT_VAL1      0x55555555u
+#define M33_STL_TE269_INPUT_VAL2      0x0000003Cu
+#define M33_STL_TE269_INPUT_VAL3      0xFFFFFFFEu
+#define M33_STL_TE269_INPUT_VAL4      0xFFFFFF00u
+#define M33_STL_TE269_INPUT_VAL5      0x000000AAu
+#define M33_STL_TE269_INPUT_VAL6      0x00000040u
+#define M33_STL_TE269_INPUT_VAL7      0x00000016u
+#define M33_STL_TE269_INPUT_VAL8      0x00000080u
+#define M33_STL_TE269_INPUT_VAL9      0x00000001u
+#define M33_STL_TE269_INPUT_VAL10     0x00010000u
+#define M33_STL_TE269_INPUT_VAL11     0x00000005u
+#define M33_STL_TE269_INPUT_VAL12     0x000000F0u
+#define M33_STL_TE269_INPUT_VAL13     0x00000000u
+
+// Define register addresses for MPU / System Control
+#define MPU_RNR         0xE000ED98u
+#define MPU_RBAR        0xE000ED9Cu
+#define MPU_RLAR        0xE000EDA0u
+#define MPU_CTRL        0xE000ED94u
+#define SHCSR           0xE000ED24u
+#define SHPR1           0xE000ED18u
+#define MAIR0           0xE000EDC0u

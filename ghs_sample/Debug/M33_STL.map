@@ -1,0 +1,184 @@
+Host OS:	Windows
+ELXR: Copyright (C) 1983-2024 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2024.1.4
+Build Directory: [Directory] chup:/export/comp_autobuild/v2024.1_co_2024-07-18/win64-cross-linux86-comp
+Revision: [VCInfo] http://toolsvc/branches/release-branch-2024-1-comp/src@759444 (built by auto-compiler)
+Revision Date: Fri Jul 19 02:46:06 2024
+
+Release Date: Fri Jul 19 02:00:00 2024
+
+
+
+
+Load Map Thu Feb 05 01:01:44 2026
+Image Summary
+
+  Section              Base      Size(hex)    Size(dec)  SecOffs
+  .start.CFLASH_USER_AREA0 00000000  00000000            0   0000000
+  .isr_vector          00000000  00000358          856   0000400
+  .text                00000400  000004e0         1248   0000800
+  .fixaddr             000008e0  00000000            0   0000000
+  .fixtype             000008e0  00000000            0   0000000
+  .secinfo             000008e0  00000048           72   0000ce0
+  .s_m33               00000928  00000188          392   0000d28
+  .rodata              00000ab0  0000002c           44   0000eb0
+  .ROM.data            00000adc  00000001            1   0000edc
+  .ROM.tls.cond.data   00000add  00000000            0   0000000
+  .ROM.sdata           00000ae0  00000000            0   0000000
+  .end.CFLASH_USER_AREA0 00400000  00000000            0   0000000
+  .start.CPU_RAM_CPU0  204e0000  00000000            0   0000000
+  .d_m33_stl_data_struct 204e0000  00000000            0   0000000
+  .data                204e0000  00000001            1   0000edc
+  .tls.cond.data       204e0001  00000000            0   0000000
+  .bss                 204e0004  0000001c           28   0000000
+  .tls.cond.bss        204e0020  00000000            0   0000000
+  .sda_start           204e0020  00000000            0   0000000
+  .sda_base            204e0020  00000000            0   0000000
+  .sdata               204e0020  00000000            0   0000000
+  .sbss                204e0020  00000000            0   0000000
+  .sda_end             204e0020  00000000            0   0000000
+  .syscall             204e0020  00000000            0   0000000
+  .stack               204e0020  00000400         1024   0000000
+  .end.CPU_RAM_CPU0    20500000  00000000            0   0000000
+  CSA_OFFSET_0x200     40121200  00000000            0   0000000
+  CSA_OFFSET_0x300     40121300  00000000            0   0000000
+
+Load Map Thu Feb 05 01:01:44 2026
+Module Summary
+
+  Origin+Size    Section          Module
+00000ab0+00002c  .rodata          crt0m.o
+00000400+00004e  .text            main0.o
+00000450+000058  .text            ghs_tc_fpu_sample.o
+204e0004+000004  .bss             ghs_tc_fpu_sample.o
+204e0008+000004  .bss             ghs_tc_mpu_sample.o
+000004a8+000024  .text            ghs_tc_mpu_sample.o
+204e000c+000008  .bss             ghs_tc_nvic_sample.o
+000004cc+00001c  .text            ghs_tc_nvic_sample.o
+000004e8+000034  .text            mem_manage_handler.o
+00000800+00007c  .text            boot.o
+0000087c+000060  .text            cstart0.o
+000008dc+000004  .text            vecttble0.o
+00000928+000018  .s_m33_ghs_tc_fpu_sample_run -> .s_m33 ghs_tc_fpu_sample_asm.o
+00000940+000148  .s_m33_m33_stl_te269 -> .s_m33 ghs_tc_mpu_sample_asm.o
+00000a88+000028  .s_m33_tc_nvic_sample_run -> .s_m33 ghs_tc_nvic_sample_run_asm.o
+204e0014+000004  .bss             libsys.a(ind_exit.o)
+204e0018+000004  .bss             libsys.a(ind_crt1.o)
+204e0000+000001  .data            libsys.a(ind_lock.o)
+204e001c+000004  .bss             libsys.a(ind_errn.o)
+000008e0+000048  .secinfo         <section info>
+
+Load Map Thu Feb 05 01:01:44 2026
+Global Symbols (sorted alphabetically)
+
+                  00000000+00003e _Exit
+                  204e0000+000000 __DATA_RAM_ADDR
+                  00000001+000000 __DATA_RAM_SIZE
+                  00000adc+000000 __DATA_ROM_ADDR
+                  204e0020+000000 __SDATA_RAM_ADDR
+                  00000000+000000 __SDATA_RAM_SIZE
+                  00000ae0+000000 __SDATA_ROM_ADDR
+                  00000000+000000 __atexit_cleanup_func
+                  00000000+000000 __cpp_exception_cleanup
+                  00000000+000004 __dotsyscall
+                  00000000+00000a __gh_errno_ptr
+                  00000000+00000c __gh_get_errno
+                  00000000+000000 __gh_iob_init
+                  00000000+000002 __gh_lock_init
+                  00000000+00000c __gh_set_errno
+                  00000000+000002 __ghsLock
+                  00000000+000002 __ghsUnlock
+                  00000000+00001c __ghs_at_exit
+                  00000000+000000 __ghs_board_cache_sync
+                  00000000+000000 __ghs_board_devices_init
+                  00000000+000000 __ghs_board_memory_init
+                  00000000+000000 __ghs_checksum
+                  00000000+000000 __ghs_coverage_init
+                  00000000+000000 __ghs_cpp_exception_cleanup
+                  00000000+000000 __ghs_cpp_exception_init
+                  00000001+000000 __ghs_cxx_do_thread_safe_local_static_inits
+                  00000000+000000 __ghs_decompress
+                  00000000+000000 __ghs_do_fp_init
+                  6699d36e+000000 __ghs_elxr_revision
+                  000316ae+000000 __ghs_elxr_version
+                  00000000+000002 __ghs_enterblock_func
+ .text            0000042e+000000 __ghs_eofn_enableFP
+ .text            0000044e+000000 __ghs_eofn_errorHandler
+ .text            000004a2+000000 __ghs_eofn_ghs_tc_fpu_get_last_sum
+ .text            00000494+000000 __ghs_eofn_ghs_tc_fpu_sample_run
+ .text            000004b6+000000 __ghs_eofn_ghs_tc_mpu_sample_run
+ .text            000004e8+000000 __ghs_eofn_ghs_tc_nvic_swint0_handler
+ .text            000004cc+000000 __ghs_eofn_m33_stl_mem_manage_handler
+ .text            00000412+000000 __ghs_eofn_main_pe0
+ .text            0000051c+000000 __ghs_eofn_mem_manage_handler
+ .text            0000043e+000000 __ghs_eofn_testPassed
+                  00000000+00030c __ghs_ind_crt0
+                  00000000+0000d8 __ghs_ind_crt1
+                  00000000+000000 __ghs_init_r4
+                  00000000+000000 __ghs_init_r5
+                  00000000+000000 __ghs_init_r6
+                  00000000+000004 __ghs_initial_dotsyscall
+                  00000002+000000 __ghs_log_fee_level
+                  00000000+000000 __ghs_malloc_init
+                  00000000+000000 __ghs_manprf_init
+                  00000000+000000 __ghs_rambootcodeend
+                  00000000+000000 __ghs_rambootcodestart
+                  00000000+000000 __ghs_rombootcodeend
+                  00000000+000000 __ghs_rombootcodestart
+                  00000000+000000 __ghs_set_stack_chk_guard
+ .data            204e0000+000001 __ghs_single_threaded
+                  00000000+000022 __ghs_syscall
+                  00000000+000026 __ghs_syscall64
+                  00000000+000000 __ghs_validate_ghtws
+ .fixaddr         000008e0+000000 __ghsbegin_fixaddr
+ .fixtype         000008e0+000000 __ghsbegin_fixtype
+                  00000000+000000 __ghsbegin_picbase
+                  00000000+000000 __ghsbegin_pidbase
+                  00000000+000000 __ghsbegin_robase
+ .secinfo         000008e0+000000 __ghsbegin_secinfo
+ .stack           204e0020+000000 __ghsbegin_stack
+ .secinfo         00000904+000000 __ghsbinfo_aclear
+ .secinfo         00000928+000000 __ghsbinfo_acopy
+ .secinfo         000008e0+000024 __ghsbinfo_clear
+ .secinfo         00000928+000000 __ghsbinfo_comacopy
+ .secinfo         00000928+000000 __ghsbinfo_comcopy
+ .secinfo         00000928+000000 __ghsbinfo_comtcopy
+ .secinfo         00000904+000024 __ghsbinfo_copy
+ .secinfo         00000928+000000 __ghsbinfo_tcopy
+ .secinfo         00000904+000000 __ghseinfo_clear
+ .secinfo         00000928+000000 __ghseinfo_comcopy
+ .secinfo         00000928+000000 __ghseinfo_copy
+ .fixaddr         000008e0+000000 __ghsend_fixaddr
+ .stack           204e0420+000000 __ghsend_stack
+                  00000000+000000 __ghssize_fixaddr
+ .isr_vector      00000000+000000 __isr_vector
+ .text            00000800+000000 __start
+ .text            0000087c+000000 __start_pe0
+                  00000000+000000 _cleanup
+                  00000000+00003e _exit
+                  00000000+0000ec _start_T
+ .text            00000412+00001c enableFP
+ .bss             204e0018+000004 environ
+ .bss             204e001c+000004 errno
+ .text            0000043e+000010 errorHandler
+                  00000000+00002a exit
+ .text            00000450+000006 f32_to_u32..d.3A.2FPhongPham.2Fghs_sample.2Fobjects.2Fghs_tc_fpu_sample.
+ .bss             204e0004+000004 g_last_sum..d.3A.2FPhongPham.2Fghs_sample.2Fobjects.2Fghs_tc_fpu_sample.
+ .bss             204e000c+000004 g_nvic_irq7_count
+ .bss             204e0010+000004 g_nvic_irq_num
+ .text            00000494+00000e ghs_tc_fpu_get_last_sum
+ .text            0000045c+000038 ghs_tc_fpu_sample_run
+ .s_m33           00000928+000000 ghs_tc_fpu_vadd_f32_u32
+ .text            000004a8+00000e ghs_tc_mpu_sample_run
+ .s_m33           00000a88+000000 ghs_tc_nvic_sample_run
+ .text            000004cc+00001c ghs_tc_nvic_swint0_handler
+ .bss             204e0008+000004 handler
+ .text            000004b6+000016 m33_stl_mem_manage_handler
+ .s_m33           00000940+000000 m33_stl_te269
+                  00000000+000000 main
+ .text            00000400+000012 main_pe0
+ .text            000004e8+000034 mem_manage_handler
+                  00000000+0001bc memcpy
+                  00000000+000088 memset
+ .text            0000042e+000010 testPassed
+ .text            00000456+000006 u32_to_f32..d.3A.2FPhongPham.2Fghs_sample.2Fobjects.2Fghs_tc_fpu_sample.
